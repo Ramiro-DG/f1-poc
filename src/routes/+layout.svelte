@@ -13,7 +13,7 @@
 
 	<div id="navbarBasic" class="navbar-menu">
 		<div class="navbar-start">
-			<a class="navbar-item"> Seasons </a>
+			<a class="navbar-item" href="/season"> Seasons </a>
 
 			<div class="navbar-item has-dropdown is-hoverable">
 				<p class="navbar-link">More</p>
