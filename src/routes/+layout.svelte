@@ -14,6 +14,7 @@
 	<div id="navbarBasic" class="navbar-menu">
 		<div class="navbar-start">
 			<a class="navbar-item" href="/season"> Seasons </a>
+			<a class="navbar-item" href="/champions"> Drivers Champions </a>
 
 			<div class="navbar-item has-dropdown is-hoverable">
 				<p class="navbar-link">More</p>
@@ -28,11 +29,11 @@
 
 		<div class="navbar-end">
 			<div class="navbar-item">
-				<p>
+				<span class="button is-static is-danger is-outlined">
 					{@html `<u><strong>[!WIP] Next Race:</strong></u> Round ${
 						nextRace.round
 					} - ${nextRace.raceName} - ${new Date(nextRace.date).toDateString()}`}
-				</p>
+				</span>
 			</div>
 		</div>
 	</div>

@@ -22,13 +22,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				{#each standingsDriver.DriverStandings as driver}
+				{#each standingsDriver.DriverStandings as { position, Driver, Constructors, points }}
 					<tr>
-						<td><strong>{driver.position}</strong></td>
-						<td>{driver.Driver.givenName} {driver.Driver.familyName}</td>
-						<td>{driver.Driver.nationality}</td>
-						<td>{driver.Constructors[0].name}</td>
-						<td>{driver.points}</td>
+						<td><strong>{position}</strong></td>
+						<td>{Driver.givenName} {Driver.familyName}</td>
+						<td>{Driver.nationality}</td>
+						<td>{Constructors[0].name}</td>
+						<td>{points}</td>
 					</tr>
 				{/each}
 			</tbody>
@@ -47,13 +47,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				{#each standingsConstructor.ConstructorStandings as constructor}
+				{#each standingsConstructor.ConstructorStandings as { position, Constructor, points, wins }}
 					<tr>
-						<td><strong>{constructor.position}</strong></td>
-						<td>{constructor.Constructor.name}</td>
-						<td>{constructor.Constructor.nationality}</td>
-						<td>{constructor.wins}</td>
-						<td>{constructor.points}</td>
+						<td><strong>{position}</strong></td>
+						<td>{Constructor.name}</td>
+						<td>{Constructor.nationality}</td>
+						<td>{wins}</td>
+						<td>{points}</td>
 					</tr>
 				{/each}
 			</tbody>
