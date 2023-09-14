@@ -31,43 +31,56 @@
 	}
 </script>
 
-{#if !fullList}
-	<p>...waiting</p>
-{:else}
-	<h1>Every F1 Drivers Champion</h1>
-	<p>Search for a driver</p>
-	<input
-		bind:value={searchTerm}
-		type="text"
-		class="input is-primary"
-		placeholder="Sebastian Vettel"
-		on:keypress={(event) => {
-			if (event.key === 'Enter') handleSearch()
-		}}
-	/>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Year</th>
-				<th>Driver</th>
-				<th>Constructor</th>
-				<th>Points</th>
-				<th>Wins</th>
-			</tr>
-		</thead>
-		<tbody>
-			{#each usedList as entry}
-				<tr>
-					<td>{entry.season}</td>
-					<td>
-						{entry.DriverStandings[0].Driver.givenName}
-						{entry.DriverStandings[0].Driver.familyName}
-					</td>
-					<td>{entry.DriverStandings[0].Constructors[0].name}</td>
-					<td>{entry.DriverStandings[0].points}</td>
-					<td>{entry.DriverStandings[0].wins}</td>
-				</tr>
-			{/each}
-		</tbody>
-	</table>
-{/if}
+<div class="container is-flex is-justify-content-center p-3">
+	{#if !fullList}
+		<progress class="is-centered progress is-danger" max="100">30%</progress>
+	{:else}
+		<div class="columns">
+			<div class="column is-narrow">
+				<h1 class="title is-2">Every F1 Drivers Champion</h1>
+				<div class="box">
+					<p class="subtitle">Search for a driver</p>
+					<input
+						bind:value={searchTerm}
+						type="text"
+						class="input is-primary"
+						placeholder="Sebastian Vettel"
+						on:input={handleSearch}
+					/>
+				</div>
+			</div>
+			<div class="column is-fullwidth" />
+			{#if usedList.length === 0}
+				<div class="notification is-danger is-fullwidth">
+					<strong> No results found </strong>
+				</div>
+			{:else}
+				<table class="table is-centered is-striped">
+					<thead>
+						<tr>
+							<th>Year</th>
+							<th>Driver</th>
+							<th>Constructor</th>
+							<th>Points</th>
+							<th>Wins</th>
+						</tr>
+					</thead>
+					<tbody>
+						{#each usedList as entry}
+							<tr>
+								<td>{entry.season}</td>
+								<td>
+									{entry.DriverStandings[0].Driver.givenName}
+									{entry.DriverStandings[0].Driver.familyName}
+								</td>
+								<td>{entry.DriverStandings[0].Constructors[0].name}</td>
+								<td>{entry.DriverStandings[0].points}</td>
+								<td>{entry.DriverStandings[0].wins}</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			{/if}
+		</div>
+	{/if}
+</div>
