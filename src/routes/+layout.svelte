@@ -4,7 +4,7 @@
 	const nextRace = data.MRData.RaceTable.Races[0]
 </script>
 
-<nav class="navbar" aria-label="main navigation">
+<nav class="navbar is-fixed-top" aria-label="main navigation">
 	<div class="navbar-brand">
 		<a class="navbar-item" href="/">
 			<img src={imgURL} width="112" height="28" alt="Formula 1 Logo" />
@@ -13,8 +13,8 @@
 
 	<div id="navbarBasic" class="navbar-menu">
 		<div class="navbar-start">
-			<a class="navbar-item" href="/season"> Seasons </a>
 			<a class="navbar-item" href="/champions"> Drivers Champions </a>
+			<a class="navbar-item" href="#"> Constructors Champions </a>
 
 			<div class="navbar-item has-dropdown is-hoverable">
 				<p class="navbar-link">More</p>
@@ -30,9 +30,7 @@
 		<div class="navbar-end">
 			<div class="navbar-item">
 				<span class="button is-static is-danger is-outlined">
-					{@html `<u><strong>[!WIP] Next Race:</strong></u> Round ${
-						nextRace.round
-					} - ${nextRace.raceName} - ${new Date(nextRace.date).toDateString()}`}
+					{@html `<u><strong>Next Race:</strong></u> &nbsp; Round ${nextRace.round} - ${nextRace.raceName} - ${nextRace.date} `}
 				</span>
 			</div>
 		</div>
