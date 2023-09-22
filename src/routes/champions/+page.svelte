@@ -3,7 +3,6 @@
 
 	let fullList: any
 	let usedList: any
-	let searchTerm: String
 
 	onMount(async () => {
 		const resp = await fetch(
@@ -11,10 +10,12 @@
 		)
 		const asyncData = await resp.json()
 		fullList = asyncData.MRData.StandingsTable.StandingsLists
-		usedList = fullList
+	  usedList = fullList
 	})
 
-	function handleSearch() {
+
+	let searchTerm=""
+	$:{
 		if (searchTerm === '') usedList = fullList
 		else {
 			usedList = fullList.filter((entry: any) => {
@@ -45,7 +46,6 @@
 						type="text"
 						class="input is-primary"
 						placeholder="Sebastian Vettel"
-						on:input={handleSearch}
 					/>
 				</div>
 			</div>
