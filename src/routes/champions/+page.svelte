@@ -49,38 +49,40 @@
 					/>
 				</div>
 			</div>
-			<div class="column is-fullwidth" />
-			{#if usedList.length === 0}
-				<div class="notification is-danger is-fullwidth">
-					<strong> No results found </strong>
-				</div>
-			{:else}
-				<table class="table is-centered is-striped">
-					<thead>
-						<tr>
-							<th>Year</th>
-							<th>Driver</th>
-							<th>Constructor</th>
-							<th>Points</th>
-							<th>Wins</th>
-						</tr>
-					</thead>
-					<tbody>
-						{#each usedList as entry}
+			<div class="column">
+				{#if usedList.length === 0}
+					<div class="notification is-danger">
+						<p class="is-size-1 has-text-centered">⚠️</p>
+						<strong> No results found </strong>
+					</div>
+				{:else}
+					<table class="table is-striped">
+						<thead>
 							<tr>
-								<td>{entry.season}</td>
-								<td>
-									{entry.DriverStandings[0].Driver.givenName}
-									{entry.DriverStandings[0].Driver.familyName}
-								</td>
-								<td>{entry.DriverStandings[0].Constructors[0].name}</td>
-								<td>{entry.DriverStandings[0].points}</td>
-								<td>{entry.DriverStandings[0].wins}</td>
+								<th>Year</th>
+								<th>Driver</th>
+								<th>Constructor</th>
+								<th>Points</th>
+								<th>Wins</th>
 							</tr>
-						{/each}
-					</tbody>
-				</table>
-			{/if}
+						</thead>
+						<tbody>
+							{#each usedList as entry}
+								<tr>
+									<td>{entry.season}</td>
+									<td>
+										{entry.DriverStandings[0].Driver.givenName}
+										{entry.DriverStandings[0].Driver.familyName}
+									</td>
+									<td>{entry.DriverStandings[0].Constructors[0].name}</td>
+									<td>{entry.DriverStandings[0].points}</td>
+									<td>{entry.DriverStandings[0].wins}</td>
+								</tr>
+							{/each}
+						</tbody>
+					</table>
+				{/if}
+			</div>
 		</div>
 	{/if}
 </div>
